@@ -1,0 +1,51 @@
+/* Program to check the equality of braces in the input string */
+
+#include<iostream>
+#include<cstdlib>
+
+void braceValue(char* );
+
+int flag=0;
+int main()
+{
+	std::string strInput;
+	std::cout<<"\n ENTER THE INPUT HERE: \n";
+	std::cin>>strInput;
+	braceValue(&strInput[0]);
+	if(flag==0)
+	{
+		std::cout<<"\nBRACES ARE EQUAL\n";
+	}
+	else
+	{
+		std::cout<<"\nBRACES ARE NOT EQUAL\n";
+	}
+	return 0;
+}
+
+void braceValue(char *str)
+{
+	std::string strBrace;
+	strBrace=str;
+	std::cout<<strBrace;
+	for(int i=0;strBrace[i]!='\0';i++)
+	{
+		switch(strBrace[i])
+		{
+			case '(':
+				{
+				flag++;
+				break;
+				}
+			case ')':
+				{
+				flag--;
+				break;
+				}
+			default:{
+				std::cout<<"\n UNKNOWN CHARACTER ENTERED\n";
+				exit(1);
+				}
+		}
+	}
+}
